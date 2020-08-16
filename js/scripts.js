@@ -1,3 +1,19 @@
-var name = 'Kline';
-var age = 26;
-document.write('My name is ' + name + ' and I\'m ' + age + ' years old!');
+var pokemonList = [
+    {
+        name: "mewtwo",
+        height: 7,
+        types: ['psychic']
+    },
+    {
+        name: "Charizard",
+        height: 15,
+        types: ['fire', 'flying']
+    },
+    {
+        name: "Haunter",
+        height: 4,
+        types: ['ghost', 'poison']
+    },
+];
+console.log(pokemonList)
+document.write(pokemonList.name)
