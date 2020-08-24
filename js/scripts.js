@@ -15,7 +15,7 @@ var pokemonList = [
 console.log(pokemonList)
 for (let i = 0; i < pokemonList.length; i++) {
     document.write('<h2>' + pokemonList[i].name + '</h2>' + ' height: ' + pokemonList[i].height)
-    if (pokemonList[i].height >= 4.07) {
+    if (pokemonList[i].height >= 10) {
         document.write(' (Wow that\'s big!)')
     }
 }
