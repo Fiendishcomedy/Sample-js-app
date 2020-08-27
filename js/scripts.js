@@ -14,6 +14,16 @@ var pokemonList = [
     height: 4,
     types: ["Ghost", "Poison"],
   },
+  {
+    name: "Pikachu",
+    height: 2,
+    types: ["Electric"],
+  },
+  {
+    name: "Jigglypuff",
+    height: 1,
+    types: ["Fairy"],
+  },
 ];
 console.log(pokemonList);
 for (var i = 0; i < pokemonList.length; i++) {
@@ -21,9 +31,9 @@ for (var i = 0; i < pokemonList.length; i++) {
   if (pokemonList[i].height >= 10) {
     size = " (Wow that's big!)";
   } else if (pokemonList[i].height > 5 && pokemonList[i].height < 10) {
-    size = " mediummonster";
+    size = " medium monster";
   } else {
-    size = " smallmonster ";
+    size = " small monster ";
   }
   var color;
   for (var item = 0; item < pokemonList[i].types.length; item++) {
@@ -33,6 +43,10 @@ for (var i = 0; i < pokemonList.length; i++) {
       color = '<span style="color:red;"> ';
     } else if (pokemonList[i].types[item] == "Ghost") {
       color = '<span style="color:blue;"> ';
+    } else if (pokemonList[i].types[item] == "Electric") {
+      color = '<span style="color:yellow;">';
+    } else if (pokemonList[i].types[item] == "Fairy") {
+      color = '<span style="color:pink;">';
     }
   }
   console.log(pokemonList[i].types.length);
