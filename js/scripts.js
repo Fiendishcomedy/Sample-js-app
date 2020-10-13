@@ -44,13 +44,34 @@ var pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
+function addListItem (pokemon){
+  let ul=document.querySelector(".pokemonList");
+  let li=document.createElement("li");
+  let button=document.createElement('button');
+  button.innerText=pokemon.name;
+  li.appendChild(button);
+  ul.appendChild(li);
+  button.addEventListener("click",function(event){
+    showDetails(pokemon)
+  })
+} 
+function showDetails(pokemon){
+  console.log(pokemon)
+
+}
 
   return {
     add: add,
     getAll: getAll,
+    addListItem: addListItem
   };
 })();
-
+pokemonRepository.add({
+  name: "Pikachu",
+  height: 0.3,
+  types: ["Electric"],
+  weight: 10,
+});
 pokemonRepository.getAll().forEach(function (pokemon) {
   var size;
   if (pokemon.height >= 10) {
@@ -87,92 +108,27 @@ pokemonRepository.getAll().forEach(function (pokemon) {
     weight = "Light Weight Pokemon";
   }
 
-  console.log(pokemon.types.length);
-  document.write(
-    '<div class="box">' +
-      pokemon.name +
-      " (height: " +
-      pokemon.height +
-      ")" +
-      "<br>" +
-      "weight: " +
-      pokemon.weight +
-      " lbs " +
-      weight +
-      "<br>" +
-      size +
-      color +
-      "<br>" +
-      pokemon.types +
-      "</div>"
-  );
+  pokemonRepository.addListItem(pokemon)
+  // document.write(
+  //   '<div class="box">' +
+  //     pokemon.name +
+  //     " (height: " +
+  //     pokemon.height +
+  //     ")" +
+  //     "<br>" +
+  //     "weight: " +
+  //     pokemon.weight +
+  //     " lbs " +
+  //     weight +
+  //     "<br>" +
+  //     size +
+  //     color +
+  //     "<br>" +
+  //     pokemon.types +
+  //     "</div>"
+  // );
 });
 
-Pokemons(pokemonList);
 
-// var $PokemonList = (function () {
-//   var pokemonRepository = [
-//     {
-//       name: "Mewtwo",
-//       height: 7,
-//       types: ["Psychic"],
-//       weight: 70,
-//     },
-//     {
-//       name: "Charizard",
-//       height: 15,
-//       types: ["Fire", "Flying"],
-//       weight: 300,
-//     },
-//     {
-//       name: "Haunter",
-//       height: 4,
-//       types: ["Ghost", "Poison"],
-//       weight: 50,
-//     },
-//     {
-//       name: "Pikachu",
-//       height: 2,
-//       types: ["Electric"],
-//       weight: 2,
-//     },
-//     {
-//       name: "Jigglypuff",
-//       height: 1,
-//       types: ["Fairy"],
-//       weight: 1,
-//     },
-//     {
-//       name: "Onix",
-//       height: 28,
-//       types: ["Rock"],
-//       weight: 460,
-//     },
-//   ];
 
-//   function add(pokemon) {
-//     pokemonRepository.push(pokemon);
-//   }
 
-//   function getAll() {
-//     return pokemonRepository;
-//   }
-
-//   return {
-//     add: add,
-//     getAll: getAll,
-//   };
-// })();
-// $PokemonList.add({
-//   name: "Scyther",
-//   height: 7,
-//   types: ["Psychic"],
-//   weight: 70,
-// });
-// $PokemonList.add({
-//   name: "Zapdos",
-//   height: 5,
-//   types: ["Electric"],
-//   weight: 100,
-// });
-// console.log($PokemonList.getAll());
